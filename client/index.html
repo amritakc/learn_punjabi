@@ -24,7 +24,9 @@
 	    	})
 
 	    	myAppDB.factory('englishFactory', function($http){
-	    		var english_letters = ['a']
+	    		var english_letters = [
+	    			{letter:'y'},
+	    			{letter:'z'}]
 	    		var factory = {}
 
 	    		factory.getEnglishLetters = function(callback){
@@ -36,7 +38,9 @@
 	    	})
 			
 			myAppDB.factory('punjabiFactory', function($http){
-	    		var punjabi_letters = ['b']
+	    		var punjabi_letters = [
+	    		{letter:'b'},
+	    		{letter:'c'}]
 	    		var factory = {}
 
 	    		factory.getPunjabiLetters = function(callback){
@@ -54,6 +58,7 @@
 				
 				englishFactory.getEnglishLetters(function(data){
 					$scope.english_letters = data
+					console.log($scope.english_letters)
 				})				
 
 				punjabiFactory.getPunjabiLetters(function(data){

@@ -1,6 +1,11 @@
 <div ng-controller = "gamesController">
 	<h1>Learn how to read Punjabi!</h1>
-		{{punjabi_letters}}
-		{{english_letters}}
+
+		<div ng-repeat="punjabi in punjabi_letters track by $index">	
+			<p ng-click='punjabiLetter($index)'><button>{{punjabi.letter}}</button></p>
+		</div>
+		<div ng-repeat="english in english_letters track by $index">
+			<p ng-click='englishLetter($index)'><button>{{english.letter}}</button></p>
+		</div>
 
 </div>
