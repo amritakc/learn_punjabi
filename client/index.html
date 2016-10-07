@@ -22,8 +22,43 @@
 	    			redirectTo: '/'
 	    		})
 	    	})
+
+	    	myAppDB.factory('englishFactory', function($http){
+	    		var english_letters = ['a']
+	    		var factory = {}
+
+	    		factory.getEnglishLetters = function(callback){
+	    			callback(english_letters)
+	    		}
+
+	    		return factory
+
+	    	})
 			
-			myAppDB.controller('gamesController', function($scope, $location){
+			myAppDB.factory('punjabiFactory', function($http){
+	    		var punjabi_letters = ['b']
+	    		var factory = {}
+
+	    		factory.getPunjabiLetters = function(callback){
+	    			callback(punjabi_letters)
+	    		}
+
+	    		return factory
+
+	    	})			
+
+			myAppDB.controller('gamesController', function($scope, $location, punjabiFactory, englishFactory){
+
+				$scope.english_letters
+				$scope.punjabi_letters
+				
+				englishFactory.getEnglishLetters(function(data){
+					$scope.english_letters = data
+				})				
+
+				punjabiFactory.getPunjabiLetters(function(data){
+					$scope.punjabi_letters = data
+				})
 
 			})
 		</script>
